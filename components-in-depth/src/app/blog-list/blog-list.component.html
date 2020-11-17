@@ -1,2 +1,1 @@
-<app-blog-post-tile title="Blog Post 1" description="Summary 1"></app-blog-post-tile>
-<app-blog-post-tile title="Blog Post 2" description="Summary 2"></app-blog-post-tile>
+<app-blog-post-tile *ngFor="let post of blogPosts" [post]="post"></app-blog-post-tile> <!-- passing object to component -->

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BlogPost } from '../blog-post';
 
 @Component({
   selector: 'app-blog-post-tile',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./blog-post-tile.component.scss']
 })
 export class BlogPostTileComponent implements OnInit {
-  @Input() title: string;
-  @Input("description") summary: string;
+  @Input() post: BlogPost; // type of input member variable of child component should be same as the type being passed in by the parent component
 
   constructor() { }
 
