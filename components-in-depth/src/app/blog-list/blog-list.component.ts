@@ -16,7 +16,7 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit(): void { // one of angular lifecycle events marks by certain hooks(point)
     this.blogPosts.push(new BlogPost("Blog post 1", "Summary 1"));
-    this.blogPosts.push(new BlogPost("Blog post 2", "Summary 2"));
+    this.blogPosts.push(new BlogPost("Blog post 2", "Fairly pick teams without bias. No need to draw names out of a hat. No need to do a grade school style draft or put hours of thought into the most balanced teams. The most fair dividing method possible is random.Fairly pick teams without bias. No need to draw names out of a hat. No need to do a grade school style draft or put hours of thought into the most balanced teams. The most fair dividing method possible is random.Fairly pick teams without bias. No need to draw names out of a hat. No need to do a grade school style draft or put hours of thought into the most balanced teams. The most fair dividing method possible is random.Fairly pick teams without bias. No need to draw names out of a hat. No need to do a grade school style draft or put hours of thought into the most balanced teams. The most fair dividing method possible is random.Fairly pick teams without bias. No need to draw names out of a hat. No need to do a grade school style draft or put hours of thought into the most balanced teams. The most fair dividing method possible is random."));
     this.blogPosts.push(new BlogPost("Blog post 3", "Summary 3"));
   }
 

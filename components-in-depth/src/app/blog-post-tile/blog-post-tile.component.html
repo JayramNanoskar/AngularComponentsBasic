@@ -2,7 +2,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <!--template expression {{}}- here plugin value from instance using class member variable  -->
-        <p class="card-text">{{ post.summary }}</p>
+        <p class="card-text">{{ post.summary | truncate: [30] }}</p> <!-- pipe will accept, process and return incomming value and we can pass parameters to pipe function also  -->
         <a href="" class="btn btn-primary">Read</a>
     </div>
 </div>
