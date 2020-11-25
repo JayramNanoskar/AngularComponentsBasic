@@ -1,1 +1,5 @@
-<app-blog-post-tile *ngFor="let post of blogPosts" [post]="post"></app-blog-post-tile> <!-- passing object to component -->
+<app-blog-post-tile *ngFor="let post of blogPosts[currentPage]" [post]="post"></app-blog-post-tile> <!-- passing object to component -->
+<app-paginator [numberOfPages]= "blogPosts.length" (pageNumberClick)="updatePage($event)"></app-paginator> <!-- listening to emitted event and calling updatePage() with emitted payload/data  as a parameter using special syntax -->
+<!-- Doing two way communication as from parent to the child and child to the parent" -->
+<!-- [numberOfPages]= "blogPosts.length" - send data from parent to the child -->
+<!-- (pageNumberClick)="updatePage($event)" - send control/event and along with event there is data being sent as well from child to the parent -->
