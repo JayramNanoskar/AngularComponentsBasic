@@ -9,13 +9,19 @@ import { TruncatePipe } from '../truncate.pipe';
 })
 export class BlogPostTileComponent implements OnInit {
   @Input() post: BlogPost; // type of input member variable of child component should be same as the type being passed in by the parent component
+  fullSummary: string;
 
   constructor(private truncatePipe: TruncatePipe) { //using Dependency Injection to create single instance(singleton) like we do for service 
 
    }
 
   ngOnInit(): void {
+    this.fullSummary = this.post.summary;
     this.post.summary = this.truncatePipe.transform(this.post.summary, 30);
+  }
+
+  showFullSummary(){
+    this.post.summary = this.fullSummary;
   }
 
 }
