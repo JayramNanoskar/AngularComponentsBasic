@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { BlogPost } from '../blog-post';
 import { BlogPostTileComponent } from '../blog-post-tile/blog-post-tile.component';
 
@@ -12,7 +12,8 @@ export class BlogListComponent implements OnInit {
   blogPosts: BlogPost[][]; //Array of array- here blogPosts is array of pages and each page is array of blog-posts i.e.[page][blog-post]
   currentPage: number;
   //ViewChild takes an argument same as a template reference variable(marked in view) to pickup value of view's that particular component instance
-  @ViewChild("tile") blogPostTileComponent: BlogPostTileComponent;
+  // @ViewChild("tile") blogPostTileComponent: BlogPostTileComponent;
+  @ViewChildren("tile") blogPostTileComponents: QueryList<BlogPostTileComponent>; //getting list of child instances by template reference variable
 
   //ideally constructor need to keep lightweight, used for dependency injection
   //other stuff should be in ngOnInit() not in constructor() like - regarding initializing instances and also making rest service calls
@@ -52,7 +53,10 @@ export class BlogListComponent implements OnInit {
 
   expandAll(){
     console.log("Expand All");
-    this.blogPostTileComponent.showFullSummary(); //getting the access of other component method using member variable(with template reference variable)
+    //this.blogPostTileComponent.showFullSummary(); //getting the access of other component method using member variable(with template reference variable)
+    this.blogPostTileComponents.forEach(element => {
+      element.showFullSummary();
+    });
   }
 
 }
