@@ -1,0 +1,6 @@
+// style going to apply to this component only, not even to it's child component because anular adds extra attribute to dom element at runtime
+// this feature is called view encapsulation that solves problem of adding qualifiers in css to differntiate style in large codebase
+
+.blog-btn{
+    font-weight: 800;
+}
