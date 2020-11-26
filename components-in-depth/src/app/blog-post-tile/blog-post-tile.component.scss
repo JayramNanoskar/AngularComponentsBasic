@@ -4,3 +4,8 @@
 .blog-btn{
     font-weight: 800;
 }
+
+// .blog-tile{ //will apply style to same component element
+:host{ // host selector- will apply style to parent component element
+    margin: 20px;
+}
