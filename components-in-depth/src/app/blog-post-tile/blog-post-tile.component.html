@@ -1,8 +1,10 @@
-<div class="card blog-tile">
+<div class="card blog-tile" [ngClass]="{'fav': post.isFav}">
+<!--[] with ngClass directive - to evaluate as an expression and here class 'fav' gets apply only if value gets true. So we can add/remove bunch of classes depending on expression  -->
     <div class="card-body">
         <h5 class="card-title">{{ post.title }}</h5>
         <!--template expression {{}}- here plugin value from instance using class member variable  -->
         <p class="card-text" (click)="showFullSummary()" >{{ post.summary }}</p> <!-- pipe will accept, process and return incomming value and we can pass parameters to pipe function also  -->
-        <a href="" class="btn btn-primary blog-btn">Read</a>
+        <a href="#" class="btn btn-primary blog-btn">Read</a>
+        <a href="#" class="btn btn-primary blog-btn" (click)="toggleFav()">Favorite</a>
     </div>
 </div>
