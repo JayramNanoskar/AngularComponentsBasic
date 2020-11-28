@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { BlogDataService } from '../blog-data.service';
 import { BlogPost } from '../blog-post';
 import { BlogPostTileComponent } from '../blog-post-tile/blog-post-tile.component';
@@ -40,6 +40,19 @@ export class BlogListComponent implements OnInit {
     this.blogPostTileComponents.forEach(element => {
       element.showFullSummary();
     });
+  }
+
+  favAll(){
+    //not changing an object/instance rather changing property of an instance
+    this.blogPosts[this.currentPage] //giving all blogpost in that current page
+    .forEach(post => post.isFav = true)
+    
+    //Change detection strategy get applies here
+    //Angular1+ -> smart about to constantly looks for any changes and detect it(like we had used ngClass which listened for those changes and based on that add/remove class). We can customise the change detection
+    //Angular js/Angular1-> used digest cycle for changes detection(keep the list of what has changed and based on that used to do right thing required). It was tedious process.
+    
+    //Change detection strategy - Bydefault it checks all the properties but we can tell angular  not to check whole instance properties but check only if top reference of an object/instance got change
+    //makes application more efficient - by not to look deep into object(property or sub-property) but look just for change in top reference of an object/instance
   }
 
 }
