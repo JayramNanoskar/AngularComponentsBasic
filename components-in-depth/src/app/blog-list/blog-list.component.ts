@@ -6,7 +6,8 @@ import { BlogPostTileComponent } from '../blog-post-tile/blog-post-tile.componen
 @Component({
   selector: 'app-blog-list',
   templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.scss']
+  styleUrls: ['./blog-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush //when object is deeply nested better to use OnPush ChangeDetectionStrategy(check top reference only) but bydefault ChangeDetectionStrategy is Defalt
 })
 export class BlogListComponent implements OnInit {
   // blogPosts: BlogPost[] = [];
@@ -43,6 +44,15 @@ export class BlogListComponent implements OnInit {
   }
 
   favAll(){
+    //changing an object/instance by providing new object
+    this.blogPosts[this.currentPage] = 
+      this.blogPosts[this.currentPage]
+      .map(post => ({
+        title: post.title,
+        summary: post.summary,
+        isFav: true,
+      }))
+
     //not changing an object/instance rather changing property of an instance
     this.blogPosts[this.currentPage] //giving all blogpost in that current page
     .forEach(post => post.isFav = true)
